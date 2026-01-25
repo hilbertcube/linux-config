@@ -1,0 +1,130 @@
+// Based on exmaple 14.jsonc -> Inspired by Catnap
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "padding": {
+            "top": 2,
+            "left": 2
+        },
+        "color": {
+            "1": "\u001b[38;5;208m"  // Orange color for logo
+        },
+        "type": "auto",
+        "source": "/home/tux.png", "height": 16 // https://en.wikipedia.org/wiki/Tux_(mascot)#/media/File:Tux.svg
+    },
+    "display": {
+        "separator": "",
+        "constants": [
+            "─────────────────" // {$1}, used in Custom module
+        ],
+        "key": {
+            "width": 14
+        }
+    },
+    "modules": [
+        {
+            "type": "custom", // HardwareStart
+            // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
+            "format": "{#37}┌{$1}{$1} {#4}System{#24} {$1}{$1}┐{#}"
+        },
+        {
+            "key": "├╼ Battery",
+            "type": "battery",  // CPU/GPU temperatures
+            "keyColor": "38;2;0;255;255"
+        },
+        {
+            "key": "├╼ CPU",
+            "type": "cpu",
+            "showPeCoreCount": true,
+            "keyColor": "31"
+        },
+        {
+            "key": "│  └╼ Cache",
+            "type": "cpucache",
+            "keyColor": "red"
+        },
+        {
+            "type": "custom",
+            "key": "├╼ GPUs",
+            "keyColor": "38;2;118;185;0" 
+        },
+        {
+            "key": "│  └╼ GPU",  // Discrete GPU (NVIDIA)
+            "type": "gpu",
+            "driverSpecific": true, // <--- Helps detect memory, core count, etc.
+            "format": "{2} @ {7} @ {12}",
+            "keyColor": "38;2;118;185;0"  // NVIDIA green
+        
+        },
+        {
+            "type": "custom",
+            "key": "├╼ Disks",
+            "keyColor": "38;2;0;191;255" 
+        },
+        {
+            "key": "│  └╼ SSD1",
+            "type": "disk",
+            "folders": "/",
+            "keyColor": "38;2;0;191;255"  // Bright cyan/sky blue
+        },
+        {
+            "key": "│  └╼ SSD2",
+            "type": "disk",
+            "folders": "/media/work",
+            "keyColor": "38;2;0;191;255"  // Bright lime green
+        },
+        {
+            "type": "custom",
+            "key": "├╼ Memory",
+            "keyColor": "38;2;255;20;147" 
+        },
+        {
+            "key": "│  └╼ RAM",
+            "type": "memory",
+            "keyColor": "38;2;255;20;147"  // Bright hot pink
+        },
+        {
+            "key": "│  └╼ Swap",
+            "type": "swap",
+            "keyColor": "38;2;255;20;147"  // Bright purple/violet
+        },
+        {
+            "key": "├╼ Network",
+            "type": "custom",
+            "keyColor": "38;2;255;255;0"  // Bright sky blue
+        },
+        {
+            "key": "│  └╼ Wifi",
+            "type": "wifi",
+            "keyColor": "38;2;255;255;0"  // Bright sky blue
+        },
+        {
+            "key": "│  └╼ LAN",
+            "type": "localip",
+            "compact": false,
+            "keyColor": "38;2;255;255;0"  // Bright sky blue
+        },
+       {
+            "key": "├╼ Processes",
+            "type": "processes",  // Number of running processes
+            "keyColor": "38;2;255;69;0"
+        },
+        {
+            "key": "├╼ Uptime",
+            "type": "uptime",
+            "keyColor": "38;2;0;255;255"  // Bright cyan
+        },
+        {
+            "key": "├╼ Packages",
+            "type": "packages",
+            "keyColor": "38;2;50;205;50"  // Bright lime green
+        },
+        {
+            "type": "custom", // InformationEnd
+            "format": "{#37}└{$1}{$1}────────────────────────{$1}┘{#}"
+        }
+    ]
+}
+
+// ref: https://github.com/fastfetch-cli/fastfetch/discussions/971
+// ref: https://en.wikipedia.org/wiki/Box-drawing_characters
