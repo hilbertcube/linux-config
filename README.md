@@ -1,5 +1,9 @@
 # Fastfetch config
 
-Minimal gnome setup
+## Desktop
 
-![alt](img.png)
+![Desktop](rice.png)
+
+## Firefox
+
+![Desktop](firefox.png)

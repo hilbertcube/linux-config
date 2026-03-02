@@ -1,0 +1,72 @@
+@-moz-document url("about:newtab"), url("about:home") {
+    .search-inner-wrapper {
+        display: none !important;
+    }
+
+    .weatherInfoLink {
+        background: rgba(255, 255, 255, 0.2); 
+        
+        backdrop-filter: blur(10px); 
+        -webkit-backdrop-filter: blur(10px); /* For Safari support */
+        
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+
+        padding: 8px 12px;
+    }
+
+    /* --- Top Sites Buttons (Squares with icons) --- */
+    .top-site-button .tile {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        
+        /* Glass effect for the button tile itself */
+        background-color: rgba(130, 130, 130, 0.1) !important;
+        backdrop-filter: blur(5px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        
+        /* Add a soft depth shadow that helps it pop off the background */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+        transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s !important;
+
+        color: white !important;
+    }
+
+    .top-site-button .icon-wrapper {
+        border-radius: 50% !important;
+    }
+    
+    .top-site-button:hover .tile {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    /* --- Text Labels (Under the buttons) --- */
+    .top-site-button .title {
+        margin-top: 8px !important;
+        font-size: 13px !important;
+        opacity: 0.9 !important; /* Slightly faded unless hovered */
+    }
+    
+    .top-site-button:hover .title {
+        opacity: 1 !important;
+    }
+
+    .logo {
+        background-image: url("Fox.png") !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        width: 180px !important;
+        height: 140px !important;
+        aspect-ratio: auto !important;
+    }
+    .wordmark {
+        background-image: url("Firefox.png") !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        width: 240px !important;
+        height: 180px !important;
+        aspect-ratio: auto !important;}
+}
